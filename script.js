@@ -11,8 +11,6 @@ const DIRECTION = {
 };
 // Move Interval
 let MOVE_INTERVAL;
-// Snake Life
-let snakeLife = 3;
 // Audio Game Over
 let audioGameOver = new Audio("assets/game-over.mp3");
 // Audio Level Up
@@ -44,6 +42,7 @@ function initSnake(color) {
     ...initHeadAndBody(),
     direction: initDirection(),
     score: 0,
+    snakeLife: 3,
   };
 }
 let snake1 = initSnake("#48BF53");
@@ -187,7 +186,7 @@ function draw() {
     drawScore(snake1);
 
     // Show Heart in Left Corner
-    for (let i = 0; i < snakeLife; i++) {
+    for (let i = 0; i < snake1.snakeLife; i++) {
       ctx.drawImage(heartImg, 25 * i + 10, 10, CELL_SIZE, CELL_SIZE);
     }
   }, REDRAW_INTERVAL);
@@ -224,7 +223,7 @@ function eat(snake, apple, apple2, heart) {
   if (snake.head.x == heart.position.x && snake.head.y == heart.position.y) {
     heart.position = initPosition();
     snake.score++;
-    snakeLife++;
+    snake1.snakeLife++;
   }
 }
 
@@ -268,9 +267,19 @@ function checkCollision(snakes, obstacles) {
     }
   }
   if (isCollide) {
-    audioGameOver.play();
-    alert("Game over");
-    snake1 = initSnake("#F6D55C");
+    snake1.snakeLife--;
+    // alert("Game over");
+
+    // life
+    if (snake1.snakeLife > 0) {
+      snake1 = {
+        ...snake1,
+        ...initHeadAndBody(),
+        direction: initDirection(),
+      };
+    } else if (snake1.snakeLife === 0) {
+      snake1 = initSnake("##48BF53");
+    }
   }
   return isCollide;
 }
