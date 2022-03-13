@@ -223,6 +223,7 @@ function eat(snake, apple, apple2, heart) {
   // Adding heart when snake eat it
   if (snake.head.x == heart.position.x && snake.head.y == heart.position.y) {
     heart.position = initPosition();
+    snake.score++;
     snakeLife++;
   }
 }
