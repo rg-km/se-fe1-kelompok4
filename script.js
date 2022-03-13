@@ -102,29 +102,29 @@ function drawScore(snake) {
   // Leveling of snake games
   if (snake.score < 5) {
     document.getElementById("level").value = "1";
-    MOVE_INTERVAL = 160;
+    MOVE_INTERVAL = 155;
     document.getElementById("speed").value = MOVE_INTERVAL;
   } else if (snake.score < 10) {
     document.getElementById("level").value = "2";
-    MOVE_INTERVAL = 140;
+    MOVE_INTERVAL = 135;
     document.getElementById("speed").value = MOVE_INTERVAL;
     drawObstacle(50, 250, 400, 10, "#BD0036");
   } else if (snake.score < 15) {
     document.getElementById("level").value = "3";
-    MOVE_INTERVAL = 120;
+    MOVE_INTERVAL = 110;
     document.getElementById("speed").value = MOVE_INTERVAL;
     drawObstacle(50, 200, 400, 10, "#BD0036");
     drawObstacle(50, 300, 400, 10, "#BD0036");
   } else if (snake.score < 20) {
     document.getElementById("level").value = "4";
-    MOVE_INTERVAL = 100;
+    MOVE_INTERVAL = 85;
     document.getElementById("speed").value = MOVE_INTERVAL;
     drawObstacle(50, 150, 400, 10, "#BD0036");
     drawObstacle(50, 250, 400, 10, "#BD0036");
     drawObstacle(50, 350, 400, 10, "#BD0036");
   } else if (snake.score >= 20) {
     document.getElementById("level").value = "5";
-    MOVE_INTERVAL = 80;
+    MOVE_INTERVAL = 60;
     document.getElementById("speed").value = MOVE_INTERVAL;
     drawObstacle(100, 50, 10, 400, "#BD0036");
     drawObstacle(400, 50, 10, 400, "#BD0036");
