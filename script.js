@@ -43,8 +43,11 @@ function initSnake() {
     score: 0,
   };
 }
+
+// Initialize snake
 let snake1 = initSnake();
 
+// Initialize apple
 let apple = {
   position: initPosition(),
 };
@@ -119,7 +122,7 @@ let obstacle5 = {
       22,
     ],
   },
-  color: "black",
+  color: "#C70039",
 };
 
 function showObstacle() {
@@ -243,13 +246,14 @@ function draw() {
 
     ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
+    // Change snake into snake head and body
     showPicture(ctx, snakeHeadImg, snake1.head.x, snake1.head.y);
     for (let i = 1; i < snake1.body.length; i++) {
       showPicture(ctx, bodySnakeImg, snake1.body[i].x, snake1.body[i].y);
     }
 
+    // Draw apple in canvas
     showPicture(ctx, appleImg, apple.position.x, apple.position.y);
-
     showPicture(ctx, appleImg, apple2.position.x, apple2.position.y);
 
     if (cekPrima(snake1.score)) {
@@ -284,14 +288,17 @@ function teleport(snake) {
   }
 }
 
+// Check for leveling snake
 function cekLevel(snake) {
   if (snake.score % 5 === 0) {
     snakeLevel++;
     audioLevelUp.play();
     MOVE_INTERVAL -= 25;
+    alert("Level " + snakeLevel++);
   }
 }
 
+// Eat Apple
 function eat(snake, apple) {
   if (snake.head.x == apple.position.x && snake.head.y == apple.position.y) {
     apple.position = initPosition();
