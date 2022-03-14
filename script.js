@@ -36,6 +36,7 @@ function initDirection() {
   return Math.floor(Math.random() * 4);
 }
 
+// Initialize snake and score
 function initSnake() {
   return {
     ...initHeadAndBody(),
@@ -189,6 +190,7 @@ function showPicture(ctx, img, x, y) {
   ctx.drawImage(img, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
 }
 
+// Show score in canvas
 function drawScore(snake) {
   let scoreCanvas;
   if (snake.color == snake1.color) {
