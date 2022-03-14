@@ -269,11 +269,13 @@ function teleport(snake) {
   }
 }
 
+// Check for leveling snake
 function cekLevel(snake) {
   if (snake.score % 5 === 0) {
     snakeLevel++;
     audioLevelUp.play();
     MOVE_INTERVAL -= 25;
+    alert("Level " + snakeLevel++);
   }
 }
 
