@@ -43,6 +43,8 @@ function initSnake() {
     score: 0,
   };
 }
+
+// Initialize snake
 let snake1 = initSnake();
 
 // Initialize apple
@@ -225,6 +227,7 @@ function draw() {
 
     ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
+    // Change snake into snake head and body
     showPicture(ctx, snakeHeadImg, snake1.head.x, snake1.head.y);
     for (let i = 1; i < snake1.body.length; i++) {
       showPicture(ctx, bodySnakeImg, snake1.body[i].x, snake1.body[i].y);
