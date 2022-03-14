@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,38 +18,10 @@
         /* position: absolute; */
       }
 
-      h3 {
-        text-align: center;
-      }
-
-      p {
-        text-align: center;
-        font-size: 18px;
-      }
-
       #score1Board {
         margin-left: auto;
         margin-right: auto;
         display: block;
-      }
-
-      h4 {
-        text-align: center;
-        font-size: 18px;
-      }
-
-      #level {
-        border: none;
-        width: 30px;
-        font-weight: 800;
-        font-size: 16px;
-      }
-
-      #speed {
-        border: none;
-        font-weight: 800;
-        width: 35px;
-        font-size: 16px;
       }
 
       #heart {
@@ -61,16 +32,12 @@
         background-color: #f6d55c;
       }
 
-      #apple {
-        background-color: #f6d55c;
-        color: #f6d55c;
-      }
-
       #score1Board {
         background-color: #f6d55c;
       }
     </style>
   </head>
+  <script type="text/javascript" src="script.js"></script>
   <body onload="draw();">
     <img
       id="apple"
@@ -80,22 +47,43 @@
       width="30"
       height="30"
     />
+    <img
+      id="snake-head"
+      style="display: none"
+      width="20"
+      height="20"
+      src="assets/snake_head.png"
+      alt="snake-head"
+    />
+    <img
+      id="snake-body"
+      style="display: none"
+      width="20"
+      height="20"
+      src="assets/body-snake.png"
+      alt="body-snake"
+    />
     <img id="heart" src="assets/heart.png" alt="Heart" style="display: none" />
+    <!-- Soal no 1: Ubah nilai width dan height menjadi 600 pada element canvas:  -->
     <canvas
       id="snakeBoard"
       width="500"
       height="500"
-      style="border: 1px solid #000000"
+      style="
+        border: 1px solid #000000;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      "
     ></canvas>
-    <h3>Snake Games - Level : <input id="level" value="0" /></h3>
-    <p>Score</p>
+    <h3 id="level" style="text-align: center"></h3>
+    <p style="text-align: center; font-size: large">Score</p>
     <canvas
       id="score1Board"
       width="75"
       height="75"
       style="border: 2px solid #000000"
     ></canvas>
-    <h4>Speed : <input id="speed" value="" />ms</h4>
+    <h3 id="speed" style="text-align: center"></h3>
   </body>
-  <script type="text/javascript" src="script.js"></script>
 </html>
