@@ -296,7 +296,6 @@ function cekLevel(snake) {
     snakeLevel++;
     audioLevelUp.play();
     MOVE_INTERVAL -= 25;
-    alert("Level " + snakeLevel++);
   }
 }
 
