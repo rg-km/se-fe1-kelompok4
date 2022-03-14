@@ -68,7 +68,7 @@ let obstacle1 = {
       12, 12, 12,
     ],
   },
-  color: "#C70039",
+  color: "black",
 };
 
 let obstacle2 = {
