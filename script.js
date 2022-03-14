@@ -397,6 +397,7 @@ function checkCollision(snakes) {
     }
   }
 
+  // Check wether snake life is one left or empty
   if (isCollide) {
     if (snakeLife === 1) {
       audioGameOver.play();
