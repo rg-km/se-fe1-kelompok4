@@ -45,6 +45,7 @@ function initSnake() {
 }
 let snake1 = initSnake();
 
+// Initialize apple
 let apple = {
   position: initPosition(),
 };
@@ -229,8 +230,8 @@ function draw() {
       showPicture(ctx, bodySnakeImg, snake1.body[i].x, snake1.body[i].y);
     }
 
+    // Draw apple in canvas
     showPicture(ctx, appleImg, apple.position.x, apple.position.y);
-
     showPicture(ctx, appleImg, apple2.position.x, apple2.position.y);
 
     if (cekPrima(snake1.score)) {
@@ -273,6 +274,7 @@ function cekLevel(snake) {
   }
 }
 
+// Eat Apple
 function eat(snake, apple) {
   if (snake.head.x == apple.position.x && snake.head.y == apple.position.y) {
     apple.position = initPosition();
