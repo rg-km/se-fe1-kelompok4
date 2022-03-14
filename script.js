@@ -59,8 +59,14 @@ let heart = {
 
 let obstacle1 = {
   position: {
-    x: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-    y: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    x: [
+      2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+      22,
+    ],
+    y: [
+      12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 120, 12, 12, 12, 12, 12,
+      12, 12, 12,
+    ],
   },
   color: "#C70039",
 };
@@ -96,42 +102,6 @@ let obstacle5 = {
   },
   color: "#C70039",
 };
-
-function drawCell(ctx, x, y, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-}
-
-function showPicture(ctx, img, x, y) {
-  ctx.drawImage(img, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-}
-
-function drawScore(snake) {
-  let scoreCanvas;
-  if (snake.color == snake1.color) {
-    scoreCanvas = document.getElementById("score1Board");
-  }
-  let scoreCtx = scoreCanvas.getContext("2d");
-
-  scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-  scoreCtx.font = "30px Arial";
-  scoreCtx.fillStyle = snake.color;
-  scoreCtx.fillText(snake.score, 10, scoreCanvas.scrollHeight / 2);
-}
-
-function cekPrima(num) {
-  let div = 0;
-  for (let i = 1; i <= num; i++) {
-    if (num % i == 0) {
-      div++;
-    }
-  }
-  if (div == 2) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 function showObstacle() {
   let snakeCanvas = document.getElementById("snakeBoard");
@@ -207,6 +177,42 @@ function showObstacle() {
   }
 }
 
+function drawCell(ctx, x, y, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+}
+
+function showPicture(ctx, img, x, y) {
+  ctx.drawImage(img, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+}
+
+function drawScore(snake) {
+  let scoreCanvas;
+  if (snake.color == snake1.color) {
+    scoreCanvas = document.getElementById("score1Board");
+  }
+  let scoreCtx = scoreCanvas.getContext("2d");
+
+  scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  scoreCtx.font = "30px Arial";
+  scoreCtx.fillStyle = snake.color;
+  scoreCtx.fillText(snake.score, 10, scoreCanvas.scrollHeight / 2);
+}
+
+function cekPrima(num) {
+  let div = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i == 0) {
+      div++;
+    }
+  }
+  if (div == 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function draw() {
   setInterval(function () {
     let snakeCanvas = document.getElementById("snakeBoard");
@@ -234,6 +240,7 @@ function draw() {
     for (let i = 0; i < snakeLife; i++) {
       showPicture(ctx, heartImg, i * 1.4 + 0.2, 0.5);
     }
+
     showObstacle();
 
     drawScore(snake1);
